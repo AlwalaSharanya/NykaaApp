@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class OrderCreationDto {
 	private Long id;
-	private String quantity;
+	private int quantity;
 
 	public Long getId() {
 		return id;
@@ -14,11 +14,11 @@ public class OrderCreationDto {
 		this.id = id;
 	}
 
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
