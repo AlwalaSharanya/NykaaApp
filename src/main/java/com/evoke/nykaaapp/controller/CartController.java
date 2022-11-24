@@ -22,7 +22,7 @@ import com.evoke.nykaaapp.service.CartService;
 @RestController
 @RequestMapping("/api")
 public class CartController {
-	private static final Logger log = LogManager.getLogger(CartController.class);
+	private static final Logger log =LogManager.getLogger(CartController.class);
 	@Autowired
 	private CartService cartService;
 
