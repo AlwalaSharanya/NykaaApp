@@ -2,14 +2,13 @@ package com.evoke.nykaaapp.service;
 
 import java.util.List;
 
-import com.evoke.nykaaapp.dto.ItemDto;
-import com.evoke.nykaaapp.dto.OrderCreationDto;
+import com.evoke.nykaaapp.dto.OrderItemDto;
 
-public interface OrderCreationService {
+public interface OrderItemService {
 
-	public OrderCreationDto create(OrderCreationDto orderCreationDto);
+	public OrderItemDto create(OrderItemDto orderItemDto);
 
-	public List<OrderCreationDto> getAll();
+	public List<OrderItemDto> getAll();
 
 //	public OrderCreationDto update(OrderCreationDto orderCreationDto);
 //

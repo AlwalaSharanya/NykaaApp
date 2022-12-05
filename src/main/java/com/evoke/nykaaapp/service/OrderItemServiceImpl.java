@@ -9,32 +9,32 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.evoke.nykaaapp.dto.OrderCreationDto;
-import com.evoke.nykaaapp.entity.OrderCreationEntity;
-import com.evoke.nykaaapp.repository.OrderCreationRepository;
+import com.evoke.nykaaapp.dto.OrderItemDto;
+import com.evoke.nykaaapp.entity.OrderItemEntity;
+import com.evoke.nykaaapp.repository.OrderItemRepository;
 
 @Service
-public class OrderCreationServiceImpl implements OrderCreationService{
-	private static final Logger log = LogManager.getLogger(OrderCreationServiceImpl.class);
+public class OrderItemServiceImpl implements OrderItemService{
+	private static final Logger log = LogManager.getLogger(OrderItemServiceImpl.class);
 	@Autowired
-	private OrderCreationRepository orderCreationRepository;
+	private OrderItemRepository orderItemRepository;
 
 	private ModelMapper mapper = new ModelMapper();
 
 	@Override
-	public OrderCreationDto create(OrderCreationDto orderCreationDto) {
-		log.info("saving items to database");
+	public OrderItemDto create(OrderItemDto orderItemDto) {
+		log.info("saving to database");
 
 		try {
 
 
 			ModelMapper mapper = new ModelMapper();
-			OrderCreationEntity orderCreationEntity = mapper.map(orderCreationDto, OrderCreationEntity.class);
+			OrderItemEntity orderItemEntity = mapper.map(orderItemDto, OrderItemEntity.class);
 
-			OrderCreationEntity createdOrder = orderCreationRepository.save(orderCreationEntity);
-			log.info("saved Item to database");
-			orderCreationDto = mapper.map(createdOrder, OrderCreationDto.class);
-			return orderCreationDto;
+			OrderItemEntity createdOrder = orderItemRepository.save(orderItemEntity);
+			log.info("saved  to database");
+			orderItemDto = mapper.map(createdOrder, OrderItemDto.class);
+			return orderItemDto;
 		} catch (Exception e) {
 			log.error("error-saving order to database: {}", e);
 		}
@@ -42,19 +42,19 @@ public class OrderCreationServiceImpl implements OrderCreationService{
 	}
 
 	@Override
-	public List<OrderCreationDto> getAll() {
-		List<OrderCreationEntity> order = orderCreationRepository.findAll();
+	public List<OrderItemDto> getAll() {
+		List<OrderItemEntity> order = orderItemRepository.findAll();
 
-		List<OrderCreationDto> orderCreationDtosList = new ArrayList<>();
+		List<OrderItemDto> orderItemDtosList = new ArrayList<>();
 
-		for (OrderCreationEntity orderCreationEntity : order) {
+		for (OrderItemEntity orderItemEntity : order) {
 
-			OrderCreationDto orderCreationDto = mapper.map(orderCreationEntity, OrderCreationDto.class);
+			OrderItemDto orderItemDto = mapper.map(orderItemEntity, OrderItemDto.class);
 
-			orderCreationDtosList.add(orderCreationDto);
+			orderItemDtosList.add(orderItemDto);
 
 		}
-		return orderCreationDtosList;
+		return orderItemDtosList;
 	}
 
 //	@Override

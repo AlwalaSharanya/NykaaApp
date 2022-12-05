@@ -7,40 +7,35 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.evoke.nykaaapp.dto.AddItemPriceDto;
-import com.evoke.nykaaapp.dto.ItemDto;
-import com.evoke.nykaaapp.dto.OrderCreationDto;
-import com.evoke.nykaaapp.service.OrderCreationService;
+import com.evoke.nykaaapp.dto.OrderItemDto;
+import com.evoke.nykaaapp.service.OrderItemService;
 @RestController
 @RequestMapping("/api")
-public class OrderCreationController {
-	private static final Logger log = LogManager.getLogger(OrderCreationController.class);
+public class OrderItemController {
+	private static final Logger log = LogManager.getLogger(OrderItemController.class);
 
 	@Autowired
-	private OrderCreationService orderCreationService;
+	private OrderItemService orderItemService;
 
-	@PostMapping("/ordercreation")
-	public ResponseEntity<String> saveItems(@RequestBody OrderCreationDto orderCreationDto) {
-		log.info("creating order {}", orderCreationDto);
+	@PostMapping("/orderitem")
+	public ResponseEntity<String> save(@RequestBody OrderItemDto orderItemDto) {
+		log.info("creating order {}", orderItemDto);
 
-		orderCreationService.create(orderCreationDto);
+		orderItemService.create(orderItemDto);
 		return new ResponseEntity<String>("created successfully", HttpStatus.CREATED);
 
 	}
 
-	@GetMapping("/ordercreation")
-	public ResponseEntity<List<OrderCreationDto>> getItems(OrderCreationDto orderCreationDto) {
-		List<OrderCreationDto> orderCreationDtos = orderCreationService.getAll();
-		return new ResponseEntity<List<OrderCreationDto>>(orderCreationDtos, HttpStatus.OK);
+	@GetMapping("/orderitem")
+	public ResponseEntity<List<OrderItemDto>> getItems(OrderItemDto orderItemDto) {
+		List<OrderItemDto> orderItemDtos = orderItemService.getAll();
+		return new ResponseEntity<List<OrderItemDto>>(orderItemDtos, HttpStatus.OK);
 	}
 
 //	@GetMapping("/items/{id}")

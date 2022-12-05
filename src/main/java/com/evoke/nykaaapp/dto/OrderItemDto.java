@@ -1,23 +1,29 @@
 package com.evoke.nykaaapp.dto;
 
 public class OrderItemDto {
-	private Long id;
-	private ItemDto itemdto;
-	public Long getId() {
-		return id;
+	private Long itemId;
+	private int quantity;
+	
+
+	public Long getItemId() {
+		return itemId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+
+	public void setItemId(Long itemId) {
+		this.itemId = itemId;
 	}
-	public ItemDto getItemdto() {
-		return itemdto;
+
+	public int getQuantity() {
+		return quantity;
 	}
-	public void setItemdto(ItemDto itemdto) {
-		this.itemdto = itemdto;
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
+
 	@Override
 	public String toString() {
-		return "OrderItemDto [id=" + id + ", itemdto=" + itemdto + "]";
+		return "OrderItemDto [itemId=" + itemId + ", quantity=" + quantity + "]";
 	}
-	
+
 }

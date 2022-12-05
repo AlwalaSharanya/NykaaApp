@@ -4,7 +4,7 @@ import java.util.List;
 
 public class OrderResponseDto {
 	private long orderId;
-	private String deliverDate;
+	private String deliveryDate;
 	private List<ItemDto> items;
 
 	public long getOrderId() {
@@ -15,12 +15,12 @@ public class OrderResponseDto {
 		this.orderId = orderId;
 	}
 
-	public String getDeliverDate() {
-		return deliverDate;
+	public String getDeliveryDate() {
+		return deliveryDate;
 	}
 
-	public void setDeliverDate(String deliverDate) {
-		this.deliverDate = deliverDate;
+	public void setDeliveryDate(String deliveryDate) {
+		this.deliveryDate = deliveryDate;
 	}
 
 	public List<ItemDto> getItems() {

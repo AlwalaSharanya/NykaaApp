@@ -5,8 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.evoke.nykaaapp.entity.ItemPriceEntity;
 import com.evoke.nykaaapp.entity.OrderCreationEntity;
+import com.evoke.nykaaapp.entity.OrderItemEntity;
 
 @Repository
-public interface OrderCreationRepository extends JpaRepository<OrderCreationEntity, Long>  {
+public interface OrderItemRepository extends JpaRepository<OrderItemEntity, Long>  {
 
 }
